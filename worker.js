@@ -1,10 +1,10 @@
 /* eslint-disable no-useless-escape */
-const github = { // DO NOT CHANGE THIS! 
-  main: "elara-bots/hastebin",
+const github = { // DO NOT CHANGE THIS!
+  main: "glyzinie/hastebin",
   branch: "main",
   css: {
     application: "application",
-    dark: "dark"
+    thema: "dark"
   },
   js: {
     application: "application",
@@ -12,14 +12,14 @@ const github = { // DO NOT CHANGE THIS!
   }
 }
 
-const options = { // YOU CAN CHANGE THIS! 
+const options = { // YOU CAN CHANGE THIS!
   expireTTL: 1209600, // In Seconds, 1209600 (2 Weeks)
   name: "Hastebin", // The name that shows at the top of the tab
   icon: `https://raw.githubusercontent.com/${github.main}/main/img/haste.png`, // The icon that shows at the top of the tab.
   siteData: {
     name: `Selfhosted Hastebin`, // The site_name for the oembed
     title: `View Haste`, // The title for the oembed.
-    description: `A cloudflare workers hastebin service, https://github.com/elara-bots/hastebin`, // The description for the oembed. 
+    description: `A cloudflare workers hastebin service, https://github.com/elara-bots/hastebin`, // The description for the oembed.
     url: `https://github.com/elara-bots/hastebin`, // The website url for the oembed.
     color: "#00ffe9", // The hex color code for the oembed.
     image: `https://raw.githubusercontent.com/${github.main}/main/img/haste.png`, // The thumbnail to use for the oembed.
@@ -120,11 +120,13 @@ async function createBin(env, content) {
 const generateHTML = () => {
   return `<!DOCTYPE html>
     <html>
-    
     <head>
-    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="robots" content="noindex,nofollow">
         <title>${options.name}</title>
-        <link href="${options.icon}" rel="icon" />
+
+        <link rel="icon" href="${options.icon}">
         <meta property="og:site_name" content="${options.siteData.name}">
         <meta property="og:type" content="website">
         <meta property="og:image" content="${options.siteData.image}">
@@ -132,17 +134,14 @@ const generateHTML = () => {
         <meta property="og:description" content="${options.siteData.description}">
         <meta property="og:title" content="${options.siteData.title}">
         <meta property="og:url" content="${options.siteData.url}">
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link rel="stylesheet" type="text/css" href="${css(github.css.dark)}" />
-        <link rel="stylesheet" type="text/css" href="${css(github.css.application)}" />
-    
+
+        <link rel="stylesheet" type="text/css" href="${css(github.css.thema)}">
+        <link rel="stylesheet" type="text/css" href="${css(github.css.application)}">
+
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"><\/script>
         <script type="text/javascript" src="${js(github.js.highlight)}"><\/script>
         <script type="text/javascript" src="${js(github.js.application)}"><\/script>
-    
-        <meta name="robots" content="noindex,nofollow" />
-    
+
         <script type="text/javascript">
             var app = null;
             // Handle pops
@@ -165,19 +164,17 @@ const generateHTML = () => {
                 handlePop({ target: window });
             });
         <\/script>
-    
     </head>
-    
     <body>
         <ul id="messages"></ul>
-    
+
         <div style="display: flex; flex-direction: column; height: 100%; width: 100%;">
             <div style="display: flex; flex: auto;">
                 <div id="linenos"></div>
                 <pre id="box" style="display:none; flex: auto;" class="hljs" tabindex="0"><code></code></pre>
                 <textarea spellcheck="false" style="display:none;"></textarea>
             </div>
-    
+
             <div id="key" class="menu" style="display: flex; padding: 16px;">
                 <div class="logo" style="flex: auto; display: flex; align-items: center;">
                     <div class="button-wrap" style="position: relative;">
@@ -228,9 +225,7 @@ const generateHTML = () => {
                 </div>
             </div>
         </div>
-    
     </body>
-    
     </html>`;
 };
 

@@ -1,13 +1,13 @@
 :root {
     --black: #23272a
   }
-  
+
   html, body {
       height: 100%;
       width: 100%;
   }
-  
-  
+
+
   body {
       background: var(--black);
       margin: 0;
@@ -15,9 +15,9 @@
       overflow-x: hidden;
       overflow-y: auto;
   }
-  
+
   /* textarea */
-  
+
   textarea {
       background: var(--black);
       border: 0px;
@@ -32,13 +32,13 @@
       margin-bottom: 0;
       padding: 20px 20px 80px 0;
   }
-  
+
   .logo a:hover svg path {
       fill: #fff;
   }
-  
+
   /* the line numbers */
-  
+
   #linenos {
       color: #7d7d7d;
       z-index: -1000;
@@ -49,9 +49,9 @@
       padding: 20px 20px 80px 20px;
       flex-shrink: 0;
   }
-  
+
   /* code box when locked */
-  
+
   #box {
       padding: 20px 20px 20px 0;
       margin: 0px;
@@ -61,18 +61,18 @@
       font-size: 13px;
       overflow: auto;
   }
-  
+
   #box code {
       padding: 0px;
       background: transparent !important; /* don't hide hastebox */
   }
-  
+
   /* key */
-  
+
   #key {
       z-index: +1000; /* watch out */
   }
-  
+
   button {
       font-size: 14px;
       color: #929EA4;
@@ -82,12 +82,12 @@
       padding: 4px 10px;
       cursor: not-allowed;
   }
-  
+
   button.enabled {
       color: #FFF;
       cursor: pointer;
   }
-  
+
   .button-wrap .label {
       display: none;
       position: absolute;
@@ -102,16 +102,16 @@
       font-size: 12px;
       width: 76px;
   }
-  
+
   .button-wrap .label.label--small {
       margin-left: -30px;
       width: 44px;
   }
-  
+
   .button-wrap:hover .label {
       display: block;
   }
-  
+
   .menu {
       position: fixed;
       bottom: 0;
@@ -119,11 +119,11 @@
       right: 0;
       background: var(--black);
   }
-  
+
   .menu-actions {
       display: flex;
   }
-  
+
   #messages {
       position: fixed;
       top: 0px;
@@ -132,17 +132,17 @@
       padding: 0;
       width: 400px;
   }
-  
+
   #messages li {
       background: rgba(23,62,72,0.8);
       margin: 0 auto;
       list-style: none;
   }
-  
+
   #messages li.error {
       background: rgba(102,8,0,0.8);
   }
-  
+
   @media only screen and (max-width: 600px) {
       .logo, .label {
           display: none !important;
