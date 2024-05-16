@@ -137,30 +137,30 @@ const generateHTML = () => {
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css">
         <link rel="stylesheet" type="text/css" href="${css(github.css.application)}">
 
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"><\/script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"><\/script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"><\/script>
         <script type="text/javascript" src="${js(github.js.application)}"><\/script>
 
         <script type="text/javascript">
             var app = null;
-            // Handle pops
-            var handlePop = function (evt) {
-                var path = evt.target.location.pathname;
-                if (path === '/') { app.newDocument(true); }
-                else { app.loadDocument(path.substring(1, path.length)); }
-            };
-            // Set up the pop state to handle loads, skipping the first load
-            // to make chrome behave like others:
-            // http://code.google.com/p/chromium/issues/detail?id=63040
-            setTimeout(function () {
-                window.onpopstate = function (evt) {
-                    try { handlePop(evt); } catch (err) { /* not loaded yet */ }
-                };
-            }, 1000);
-            // Construct app and load initial path
-            $(function () {
+
+            // Handle URL changes
+            function handlePopStateEvent(event) {
+                var path = event.target.location.pathname;
+                if (path === '/') {
+                    app.newDocument(true);
+                } else {
+                    app.loadDocument(path.substring(1));
+                }
+            }
+
+            // Initialize the app and set up event handlers
+            document.addEventListener('DOMContentLoaded', () => {
                 app = new haste('hastebin');
-                handlePop({ target: window });
+                handlePopStateEvent({ target: window });
+
+                // Use the popstate event to handle URL changes, improve setup to handle browser inconsistencies
+                window.addEventListener('popstate', handlePopStateEvent);
             });
         <\/script>
     </head>
