@@ -120,28 +120,28 @@ const generateHTML = () => {
     <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
         <meta name="robots" content="noindex,nofollow">
         <title>${options.name}</title>
 
         <link rel="icon" href="${options.icon}">
-        <meta property="og:site_name" content="${options.siteData.name}">
-        <meta property="og:type" content="website">
-        <meta property="og:image" content="${options.siteData.image}">
         <meta name="theme-color" content="${options.siteData.color}">
-        <meta property="og:description" content="${options.siteData.description}">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="${options.siteData.name}">
         <meta property="og:title" content="${options.siteData.title}">
+        <meta property="og:description" content="${options.siteData.description}">
+        <meta property="og:image" content="${options.siteData.image}">
         <meta property="og:url" content="${options.siteData.url}">
 
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css">
-        <link rel="stylesheet" type="text/css" href="${css(github.css.application)}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css">
+        <link rel="stylesheet" href="${css(github.css.application)}">
 
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"><\/script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"><\/script>
-        <script type="text/javascript" src="${js(github.js.application)}"><\/script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"><\/script>
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"><\/script>
+        <script src="${js(github.js.application)}"><\/script>
 
-        <script type="text/javascript">
+        <script>
             var app = null;
 
             // Handle URL changes
