@@ -3,12 +3,10 @@ const github = { // DO NOT CHANGE THIS!
   main: "glyzinie/hastebin",
   branch: "main",
   css: {
-    application: "application",
-    thema: "dark"
+    application: "application"
   },
   js: {
-    application: "application",
-    highlight: "highlight"
+    application: "application"
   }
 }
 
@@ -135,11 +133,12 @@ const generateHTML = () => {
         <meta property="og:title" content="${options.siteData.title}">
         <meta property="og:url" content="${options.siteData.url}">
 
-        <link rel="stylesheet" type="text/css" href="${css(github.css.thema)}">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css">
         <link rel="stylesheet" type="text/css" href="${css(github.css.application)}">
 
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"><\/script>
-        <script type="text/javascript" src="${js(github.js.highlight)}"><\/script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"><\/script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"><\/script>
         <script type="text/javascript" src="${js(github.js.application)}"><\/script>
 
         <script type="text/javascript">
